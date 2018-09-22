@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/apple/Project/Project_C/HashWordCut/include/HashWordCut.h
+iostream
+-
+map
+-
+cstring
+-
+
+/Users/apple/Project/Project_C/HashWordCut/src/HashWordCut.cpp
+../include/HashWordCut.h
+/Users/apple/Project/Project_C/HashWordCut/include/HashWordCut.h
+iostream
+-
+fstream
+-
+vector
+-
+string
+-
+
+/Users/apple/Project/Project_C/HashWordCut/src/main.cpp
+iostream
+-
+../include/HashWordCut.h
+/Users/apple/Project/Project_C/HashWordCut/include/HashWordCut.h
+
