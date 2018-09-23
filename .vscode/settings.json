@@ -8,5 +8,6 @@
         "functional": "cpp",
         "bitset": "cpp",
         "utility": "cpp"
-    }
+    },
+    "editor.tabSize": 8
 }
