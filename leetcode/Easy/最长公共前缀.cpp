@@ -52,7 +52,7 @@ public:
             // 截取部分字串
             re = re.substr(0,j); 
         }
-        cout << re << endl;
+        // cout << re << endl;
         return re;
     }
 };
