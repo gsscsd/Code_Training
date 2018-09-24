@@ -26,7 +26,7 @@ class Solution {
 public:
         // 第一种做法
         bool IsContinuous( vector<int> numbers ) {
-
+                
                 int *temp = new int[14];
                 temp[0] = -4;
                 int max = -1;
