@@ -33,7 +33,7 @@ public:
             if(haystack.size() < needle.size()) return -1;
             int i = 0;
             int j = 0;
-            for(i;i < haystack.size() - needle.size() + 1;i++)
+            for(;i < haystack.size() - needle.size() + 1;i++)
             {
                 //     cout <<  << haystack[i] << endl;
                     bool is_no = true;

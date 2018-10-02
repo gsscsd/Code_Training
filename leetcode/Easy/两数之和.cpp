@@ -12,6 +12,8 @@
 解题思路：
 1.循环遍历
 2.map表实现
+3.动态规划 参加哔哩哔哩的动态规划的视频
+4.排序之后双指针
  */
 #include <iostream>
 #include <vector>
@@ -63,4 +65,5 @@ public:
         }
         return vec;
     }
+
 };
