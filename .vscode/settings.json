@@ -15,7 +15,8 @@
         "algorithm": "cpp",
         "stack": "cpp",
         "queue": "cpp",
-        "*.tcc": "cpp"
+        "*.tcc": "cpp",
+        "system_error": "cpp"
 },
     "editor.tabSize": 8
 }

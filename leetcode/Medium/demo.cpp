@@ -35,10 +35,7 @@ public:
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
 
             ListNode *pHead = l1;
-            while(l1&&l2)
-            {
-                    
-            }
-        
+
+            return pHead;
     }
 };
