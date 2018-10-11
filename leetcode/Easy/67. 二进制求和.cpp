@@ -36,12 +36,18 @@ public:
         int temp = 0;
         while(i >= 0 && j >= 0)
         {
+            // 判断是否进位
             if(flag)
+            // 如果进位的话，还要加1
                 temp  = a[i] - '0' + b[j] - '0' + 1;
+                // 否则不用加1
             else temp = a[i] - '0' + b[j] - '0';
+            // 如果加完之后，大于2 ，说明进位了
             if(temp >= 2)
             {
+                // 进位之后，
                 temp = temp - 2;
+                // flag为true
                 flag = true;
             }
             else
