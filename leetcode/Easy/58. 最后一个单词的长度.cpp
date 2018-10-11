@@ -19,7 +19,7 @@
 
 #include <iostream>
 #include <string>
-#include <string>
+#include <sstream>
 
 using namespace std;
 
@@ -41,11 +41,30 @@ public:
     }
 };
 
+class Solution_ {
+public:
+    int lengthOfLastWord(string s) {
+        stringstream ss(s);
+        string t = "";
+        int result = 0;
+        while(ss >> t)
+        {
+            // cout << t << " " << t.length() << endl;
+            if(t != " ")
+            {
+                result = t.length();
+            }
+        }
+        return result; 
+    }
+};
+
+
 
 int main()
 {
-    Solution s;
-    string ss = "a ";
+    Solution_ s;
+    string ss = "a aa";
     int t = s.lengthOfLastWord(ss);
     cout << t << endl;
     return 0;
