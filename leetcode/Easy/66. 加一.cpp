@@ -32,15 +32,20 @@ public:
     // 屎一样的代码，冗余且难以懂
     vector<int> plusOne(vector<int>& digits) {
 
+        // flag判断是否进位哦
         bool flag = false;
         vector<int > vec;
         int len = digits.size();
         int temp = 0;
         for(int i = len - 1 ;i >= 0;--i)
         {
+            // 如果是最后一个数字，直接加1 
             if(i == len - 1) temp = digits[i] + 1;
+            // 如果进位并且不是最后一位，那么加1
             else if(flag && i != len - 1) temp = digits[i] + 1;
+            // 否则当前位就是这个数字
             else temp = digits[i];
+            // 如果当前数字大于等于10，那就要进位了
             if(temp == 10)
             {
                 flag = true;
@@ -50,8 +55,10 @@ public:
             {
                 flag = false;
             }
+            // 当前位的数字赋值
             digits[i] = temp;
         }
+        // 如果进位，在最前面插入1
         if(flag) digits.insert(digits.begin(),1);
         return digits;    
     }
@@ -70,6 +77,7 @@ public:
                 return r;
             }
         }
+        // 如果没有返回数据，说明还有进位，此时插入1
         r.insert(r.begin(), 1);
         return r;
     }
