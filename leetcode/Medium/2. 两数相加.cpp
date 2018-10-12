@@ -42,7 +42,7 @@ public:
             while(l1 || l2 || flag)
             {
                         // 判断当前的节点是否为NULL
-                        int sum = (l1 ? l1->val : 0) + (l2 ? l2->val : 0) + flag;
+                        int sum = (l1 ? l1 -> val : 0) + (l2 ? l2 -> val : 0) + flag;
                         // 用来判断是否大于10，然后去加在下一个节点
                         flag = sum / 10;
                         pH->next = new ListNode(sum % 10);
