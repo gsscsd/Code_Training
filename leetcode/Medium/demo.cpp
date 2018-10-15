@@ -227,9 +227,13 @@ class Solution
                     id = i;
                 }
                 // 更新最长回文串的长度
-                max_len = max(max_len, p[i]);
+                // max_len = max(max_len, p[i]);
+                if(max_len < p[i])
+                {
+                    max_len = p[i];
+                    start = i - max_len;
+                }
             }
-
             return "#";
         }
 };
