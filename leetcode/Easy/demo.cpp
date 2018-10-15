@@ -17,6 +17,10 @@ minStack.top();      --> 返回 0.
 minStack.getMin();   --> 返回 -2.
 */
 
+/**
+解题思路：
+通过辅助stack来实现
+*/
 
 #include <iostream>
 #include <vector>

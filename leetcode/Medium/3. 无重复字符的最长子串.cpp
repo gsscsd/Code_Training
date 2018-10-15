@@ -30,6 +30,8 @@ PS:这道题目：除了暴力的方法，其他方法暂时不会
 #include <string>
 #include <map>
 #include <vector>
+#include <stdio.h>
+#include <stdlib.h>
 
 using namespace std;
 
@@ -40,7 +42,7 @@ class Solution
         int lengthOfLongestSubstring(string s) 
         {
                 map<char, int> mp;
-                for (int i=0; i<s.length(); i++)
+                for (int i=0; i < s.length(); i++)
                     mp[s[i]] = -1;//初始化哈希表
                 int pre = -1, Max = 0;
                 for (int i=0; i < s.length(); i++)
@@ -52,8 +54,10 @@ class Solution
             return Max;
         }
         // 另一种解法，PS:字符是有限数据
+        // 通过构建一个哈希表映射字符
+        // 其实不太理解
         int lengthOfLongestSubstring_(string s) {
-            vector<int>dict(256,-1);
+            vector<int> dict(256,-1);
             int maxLen = 0;int start = -1;
             for(int i = 0;i < s.length();++i)
             {
@@ -63,6 +67,42 @@ class Solution
                 dict[s[i]] = i;
             }
             return maxLen;
+    }
+};
+// leetcode 高效率答案
+class Solution_ {
+public:
+    int lengthOfLongestSubstring(string s) {
+        if(s.empty())
+            return 0;
+        int start = 0,end = 1;
+        int max = 1;
+        bool  dic[255];
+        memset(dic,0,sizeof(bool) * 255);
+        char c = s.at(start);
+        dic[c] = true;
+        int len = s.size();
+        while(start < len && end < len)
+        {
+            
+            if(dic[s.at(end)])
+            {
+                dic[s.at(start++)] = false;
+            }
+            else
+            {
+                dic[s.at(end)] = true;
+
+                //Check if find the max length
+                if(end - start + 1> max)
+                    max = end - start + 1;
+
+                ++end;
+            }
+        }
+    
+        return max;
+        
     }
 };
 
