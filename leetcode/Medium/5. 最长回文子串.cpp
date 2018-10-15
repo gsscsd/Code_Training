@@ -189,7 +189,7 @@ class Solution
             return s.substr(start,max_len);
         }
         // 中心扩展的方法，暂时还不会
-        // Manacher算法
+        // Manacher算法,半会，会去查找最大的长度但是不会寻找它的子串
         string longestPalindrome_4(string s)
         {
             if(s.size() <= 1) return s;
@@ -197,45 +197,104 @@ class Solution
             vector<char> vec;
             vec.push_back('#');
             // 插入特殊字符
-            for(int i = 1;i < s.size();i++)
+            for(int i = 0;i < s.size();i++)
             {
                 vec.push_back(s[i]);
                 vec.push_back('#');
             }
-            // for(auto v : vec)
-            // {
-            //     cout << v;
-            // }
             // 定义id和mxright
             int id,mx = -1;
             // 定义最大长度,以及回文串的开始位置
             int max_len = 0,start = 0;
+            // 辅助遍历用于寻找回文串的对称轴
+            int index = 0;
             // 定义辅助数组
-            vector<int> p(vec.size(),0);
+            vector<int> p(vec.size() ,1);
             // 遍历寻找
             for(int i = 1;i < vec.size();i++)
             {
                 if(i < mx)
                     p[i] = min(p[2 * id - 1],mx - i);
                 else p[i] = 1;
-                while(i - p[i] >= 0 && i - p[i] <= vec.size() && vec[i - p[i]] == vec[i + p[i]])
-                p[i]++;
+                // 严重的说明一下，此处的边界判断，很重要
+                // 不过，为啥其他人的代码里面没有这个呢
+                while(i - p[i]>= 0 && i + p[i] <= vec.size() - 1 && vec[i - p[i]] == vec[i + p[i]])
+                    p[i]++;
                 // 更新id和mx
                 if(p[i] + i > mx) 
                 {
-                    mx = p[i] + i - 1;
+                    mx = p[i] + i;
                     id = i;
                 }
-                // 更新最长回文串的长度
+                // 更新最长回文串的长度,并且记录回文串的对称轴
                 // max_len = max(max_len, p[i]);
                 if(max_len < p[i])
                 {
                     max_len = p[i];
-                    start = i - max_len;
+                    // 找到回文串的对称轴
+                    index = i;
                 }
             }
-            return "#";
+            // 接下来寻找到最长回文子串
+            if(vec[index] == '#')
+            {
+                start = index / 2 - max_len / 2;
+            }
+            else start = index / 2 + 1 - max_len / 2;
+            for(int i = 0;i < p.size();i++)
+            {
+                cout << p[i] << endl;
+            }
+            cout << " index is " << index << " start is " << start << " max_len " << max_len << endl;
+            return s.substr(start,max_len - 1);
         }
+};
+// leetcode的manacher算法
+// 可以学习的是其中对于manacher的核心代码的处理
+class Solution_ {
+public:
+    string longestPalindrome(string s) {
+        size_t size = s.length();
+        string NewString("#");
+        for (int i = 0; i < size; ++i)
+        {
+            NewString.append(&s.at(i), 1);
+            NewString.append("#");
+        }
+        vector<int> vecP(NewString.size());
+        vecP[0] = 1;
+        // 下面是manacher算法
+        for (int i = 1, j = 1, k; i < NewString.size(); i += k)
+        {
+            while (i - j >= 0 && NewString[i-j] == NewString[i+j]) {
+                j++;
+            }
+            vecP[i] = j;
+            for (k = 1; k < vecP[i] && vecP[i-k] != vecP[i] - k; ++k) {
+                vecP[i+k] = min(vecP[i-k], vecP[i]-k);
+            }
+            j = max(j-k, 0);
+        }
+        // 下面找到最长回文串
+        int max = 0;
+        int j = 0;
+        for (int i = 0; i < vecP.size(); ++i) {
+            if (max < vecP[i]) {
+                max = vecP[i];
+                j = i;
+            }
+        }
+        int index = 0;
+        if (NewString[j] == '#') {
+            index = j/2 - max/2;
+        }
+        else
+        {
+            index = j/2 + 1 - max / 2;
+        }
+
+        return s.substr(index, max - 1);
+    }
 };
 
 
