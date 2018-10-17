@@ -48,6 +48,23 @@ public:
     }
 };
 
+class Solution_ {
+public:
+    int mySqrt(int x) {
+        if(x == 1 || x == 0)
+            return x;
+        double x1 = x1,x2 = x / 2;
+       
+        while(abs(x1 - x2) > 0.001)
+        {
+            x1 = x2;
+            x2 = (x1 + x / x1) / 2;
+           
+        }
+        return (int)x2;
+    }
+};
+
 int main()
 {
     Solution s;

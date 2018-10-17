@@ -37,24 +37,45 @@ class MinStack
         
         }
         
+        // 入栈元素
         void push(int x) 
         {
-            
+            if(st.empty() && min_st.empty())
+            {
+                st.push(x);
+                min_st.push(x);
+            }
+            else 
+            {
+                st.push(x);
+                if(min_st.top() > x) min_st.push(x);
+            } 
         }
         
+        // 出栈元素
         void pop() 
         {
+            if(!st.empty() && !min_st.empty())
+            {
+                if(min_st.top() == st.top())
+                {
+                    min_st.pop();st.pop();
+                }
+                else st.pop();
+            }
             
         }
         
+        // 获取栈顶元素
         int top() 
         {
-            
+            return st.top();
         }
         
+        // 获取最小元素
         int getMin() 
         {
-            
+            return min_st.top();  
         }
     private :
         stack<int> st;
