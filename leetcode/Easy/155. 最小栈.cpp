@@ -31,34 +31,32 @@ using namespace std;
 
 class MinStack 
 {
-    public :
-        MinStack() 
+    public:
+        int top()
         {
-        
+            return st.top();
         }
-        
-        void push(int x) 
+        int getMin()
         {
-            
+            return min_st.top();
         }
-        
-        void pop() 
+        void pop()
         {
-            
+            if(min_st.top() == st.top())
+            {
+                min_st.pop();
+            }
+            st.pop();
         }
-        
-        int top() 
+        void push(int x)
         {
-            
+            st.push(x);
+            if(min_st.empty() || x <= min_st.top()) min_st.push(x);
         }
-        
-        int getMin() 
-        {
-            
-        }
-    private :
-        stack<int> st;
-        stack<int> min_st;
+
+        private: 
+            stack<int> st;
+            stack<int> min_st; 
 };
 
 

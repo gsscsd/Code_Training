@@ -19,48 +19,51 @@ N*M矩阵，机器人从（0，0）走到终点，每次可以上下左右移动
 #include <vector>
 #include <string>
 #include <map>
+#include <queue>
 
 using namespace std;
 
+#define maxn 4
 
-class Solution 
+int mazeArr[maxn][maxn]; //表示的是0 1矩阵
+int stepArr[4][2] = {{-1,0},{1,0},{0,-1},{0,1}}; //表示上下左右4个方向
+int visit[maxn][maxn]; //表示该点是否被访问过，防止回溯，回溯很耗时。
+
+struct Node
 {
-    public :
-        int min_path(vector<vector<int> > &num,int rows,int cols)
-        {
-            vector<vector<int> > dp(rows,vector<int>(cols));
-            for(int i = 0;i < rows;i++)
-            {
-                for(int j = 0;j < cols;j++)
-                {
-                    if(j == 0 && i == 0) dp[i][j] = num[i][j];
-                    if(i == 0)
-                    {
-                    }
-                }
-            }
-
-        }
+    int x;
+    int y;
+    int step;
+    Node(int x1, int y1, int step1) : x(x1), y(y1), step(step1) {}
 };
 
-
-int main()
+int BFS(int n)
 {
-    int m,n;
-    cin >> n >> m;
-    vector<vector<int> > num(n,vector<int>(m));  
-    for(int i = 0;i < n;i++)
+    Node node(0, 0, 0);
+    queue <Node> q;
+    while (!q.empty())
+        q.pop();
+    q.push(node);
+    while (!q.empty())
     {
-        for(int j = 0;j < m ;j++)
+        node = q.front();
+        q.pop();
+        if (node.x == n - 1 && node.y == n - 1)
         {
-            int temp = 0;
-            cin >> temp;
-            num[i][j] = temp;
+            return node.step;
+        }
+        visit[node.x][node.y] = 1;
+        for (int i = 0; i < 4; i++)
+        {
+            int x = node.x + stepArr[i][0];
+            int y = node.y + stepArr[i][1];
+            if (x >= 0 && y >= 0 && x < n && y < n && visit[x][y] == 0 && mazeArr[x][y] != 0)
+            {
+                visit[x][y] = 1;
+                Node next(x, y, node.step + 1);
+                q.push(next);
+            }
         }
     }
-    Solution s;
-
-    int min_p = s.min_path(num,n,m);
-    cout << min_p;
-    return 0;
+    return -1;
 }
