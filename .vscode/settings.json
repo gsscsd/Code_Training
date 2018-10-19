@@ -40,5 +40,27 @@
         "queue": "cpp",
         "algorithm": "cpp",
         "string": "cpp"
-    }
+    },
+=======
+"files.associations": {
+    "array": "cpp",
+    "deque": "cpp",
+    "unordered_map": "cpp",
+    "vector": "cpp",
+    "initializer_list": "cpp",
+    "functional": "cpp",
+    "bitset": "cpp",
+    "utility": "cpp",
+    "iostream": "cpp",
+    "ostream": "cpp",
+    "sstream": "cpp",
+    "string": "cpp",
+    "algorithm": "cpp",
+    "stack": "cpp",
+    "queue": "cpp",
+    "*.tcc": "cpp",
+    "iosfwd": "cpp"
+},
+    "editor.tabSize": 8
+
 }
