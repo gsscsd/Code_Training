@@ -51,10 +51,13 @@ public:
     bool isSameTree(TreeNode* p, TreeNode* q) {
 
         // 以下是leetcode的高票答案
+        // 如果q，p同时为空，说明都一样，那么就返回true
         // if(p==NULL && q==NULL)
         //     return true;
+        // // 如果q或者p之中有一个为空，返回false
         // if(p==NULL || q==NULL)
         //     return false;
+        // // 如果，pq的值相等，那么就判断他们左子树和右子树是否相同
         // if(p->val==q->val)
         //     return isSameTree(p->left,q->left) && isSameTree(p->right,q->right);
         // return false;
