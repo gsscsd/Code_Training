@@ -38,7 +38,7 @@ public:
     int minDepth(TreeNode* root) {
         //容易出错的点是，遇到一个节点为NULL就返回0，其实应该在叶子节点处才返回0，其他的null节点不用管
         if(!root ) return 0;
-        if(!root -> left && !root -> right) return 1;
+        // if(!root -> left && !root -> right) return 1;
         if(!root -> left && root -> right) return minDepth(root -> right) + 1;//记住要加1
         if(!root -> right && root -> left) return minDepth(root -> left) + 1;//记住要加1
         return min(minDepth(root -> left),minDepth(root -> right)) + 1;//记住要加1

@@ -1,47 +1,46 @@
 /**
-给定一个整数 n，返回 n! 结果尾数中零的数量。
+你是一个专业的小偷，计划偷窃沿街的房屋。每间房内都藏有一定的现金，
+影响你偷窃的唯一制约因素就是相邻的房屋装有相互连通的防盗系统，
+如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警。
+给定一个代表每个房屋存放金额的非负整数数组，计算你在不触动警报装置的情况下，能够偷窃到的最高金额。
 
 示例 1:
-输入: 3
-输出: 0
-解释: 3! = 6, 尾数中没有零。
+输入: [1,2,3,1]
+输出: 4
+解释: 偷窃 1 号房屋 (金额 = 1) ，然后偷窃 3 号房屋 (金额 = 3)。
+     偷窃到的最高金额 = 1 + 3 = 4 。
 
 示例 2:
-
-输入: 5
-输出: 1
-解释: 5! = 120, 尾数中有 1 个零.
-说明: 你算法的时间复杂度应为 O(log n) 。
+输入: [2,7,9,3,1]
+输出: 12
+解释: 偷窃 1 号房屋 (金额 = 2), 偷窃 3 号房屋 (金额 = 9)，接着偷窃 5 号房屋 (金额 = 1)。
+     偷窃到的最高金额 = 2 + 9 + 1 = 12 。
 */
-
 /**
 解题思路：
-分析5，以及偶数的个数，如何分析，需要归纳计算
+哔哩哔哩up主：正月点灯笼讲过的一个动态规划的例子
+所以此题可以用动态规划来做
 */
 
-#include <vector>
 #include <iostream>
+#include <vector>
+#include <string>
 
 using namespace std;
 
-
-class Solution
+class Solution 
 {
     public:
-        int trailingZeroes(int n) 
+        int rob(vector<int>& nums) 
         {
-            int result = 0;
-            return n / 5;
+        
         }
 };
 
+
 int main(int argc, char const *argv[])
 {
-    Solution s;
-    int n;
-    cin >> n;
-    int t = s.trailingZeroes(n);
-    cout << t << endl;
+    
     return 0;
 }
 

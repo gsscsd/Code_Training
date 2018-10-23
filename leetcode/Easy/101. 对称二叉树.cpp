@@ -44,6 +44,7 @@ public:
         if(!left && !right) return true;
         if(!left || !right) return false;
         if(left -> val != right -> val) return false;
+        // 如果上述的情况都不满足，此时就需要去判断，左子树的左子树与右子树的右子树以及，左子树的右子树与右子树的左子树
         return isSymmetric_(left -> left,right -> right) && isSymmetric_(left -> right,right -> left);
     }
     // leetcode 的非递归的答案
