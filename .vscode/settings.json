@@ -40,5 +40,7 @@
         "queue": "cpp",
         "algorithm": "cpp",
         "string": "cpp"
-    }
+    },
+    "editor.tabSize": 4
+
 }

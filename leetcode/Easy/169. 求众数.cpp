@@ -10,6 +10,12 @@
 输入: [2,2,1,1,1,2,2]
 输出: 2
 */
+/**
+解题思路：
+参考剑指offer的代码
+1.map
+2.使用删除的方法
+*/
 
 #include <iostream>
 #include <vector>

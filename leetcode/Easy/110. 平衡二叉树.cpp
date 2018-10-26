@@ -50,13 +50,13 @@ class Solution{
 public :
     bool isBalanced(TreeNode* root) 
     {
-        // if(!root) return true;
-        // int left = maxDepth(root -> left);
-        // int right = maxDepth(root -> right);
-        // if(abs(left - right) >= 2) return false;
-        // return isBalanced(root -> left) && isBalanced(root -> right );    
+        if(!root) return true;
+        int left = maxDepth(root -> left);
+        int right = maxDepth(root -> right);
+        if(abs(left - right) >= 2) return false;
+        return isBalanced(root -> left) && isBalanced(root -> right );    
         // 优化的调用
-        return isFun(root) != -1;  
+        // return isFun(root) != -1;  
     }
 
     // 最简单的方法就是每次去计算左右子树的深度，然后对比
@@ -86,6 +86,3 @@ int main(int argc, char const *argv[])
     
     return 0;
 }
-
-
-

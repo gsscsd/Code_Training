@@ -7,7 +7,10 @@
 
 /***
 解题思路
-1.将数据存入到字典中，value是频率
+1.将数据存入到字典中，value是频率 效率还是不太高
+2.小象学院的做法，时间O(n)，空间O(1)
+解题：定义一个m和c，m是候选的众数，c代表次数，
+每次判断m与A[i]是否相同，如果不相同就同时删除
  **/
 
 #include <iostream>
@@ -20,7 +23,8 @@ using namespace std;
 class Solution {
 public:
 
-    int MoreThanHalfNum_Solution(vector<int> numbers) {
+    int MoreThanHalfNum_Solution(vector<int> numbers) 
+    {
         map<int,int> dict;
         for(int i = 0;i < numbers.size();i++)
         {
@@ -45,6 +49,27 @@ public:
             }
         }
         return result;    
+    }
+
+    // 注意以下代码参考自小象学院数组那一章节
+    int MoreThanHalfNum_Solution_(vector<int> numbers)
+    {
+        int count = 0;
+        int m = numbers[0];
+        for(int i = 0; i < numbers.size();i++)
+        {
+                if(count == 0)
+                {
+                        m = numbers[i];
+                        count = 1;
+                }
+                else if (m != numbers[i])
+                {
+                        count--;
+                }
+                else count++;
+        }
+        return m;
     }
 };
 
