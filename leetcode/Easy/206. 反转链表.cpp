@@ -48,23 +48,53 @@ class Solution
             }
             return pHead -> next;
         }
-        // 第二种方法用递归的方法
-        // 递归的方法比较难想，应该如何进入递归，又应该何时出来
-        ListNode* reverseList_(ListNode *head)
-        {
+        // // 第二种方法用递归的方法
+        // // 递归的方法比较难想，应该如何进入递归，又应该何时出来
+        // ListNode* reverseList_(ListNode *head)
+        // {
             
-        }
-        // 递归计算的函数
-        // 考虑一下，是否还需要单独的去开一个函数呢？
-        ListNode* help(ListNode *head)
-        {
-            if(!head) return NULL;
+        // }
+        // // 递归计算的函数
+        // // 考虑一下，是否还需要单独的去开一个函数呢？
+        // ListNode* help(ListNode *head)
+        // {
+        //     if(!head) return NULL;
             
-        }
-        
-
+        // }     
 };
 
+// 第二种方法用递归的方法
+// 递归的方法比较难想，应该如何进入递归，又应该何时出来
+// 这个递归函数没有设计出来
+// 说明对于递归还是没有掌握的很熟练
+class Solution_ {
+public:
+    // 递归调用的函数
+    // 注意这个递归函数的设计
+    // 递归函数的入口形参，以及返回的头节点
+    ListNode* reverseTwo(ListNode* head, ListNode *tail) {
+        // 如果tail不为空
+        if (tail) {
+            ListNode *newHead = reverseTwo(tail, tail -> next);
+            tail -> next = head;
+            return newHead;
+        }
+        // 否则就返回头节点
+        else
+            return head;
+    }
+    // 反转链表
+    ListNode* reverseList(ListNode* head) {
+        // 如果头节点等于NULL
+        if (head == nullptr)
+            return head;
+        // 进入递归函数去反转链表
+        ListNode *newHead = reverseTwo(head, head->next);
+        head->next = nullptr;
+
+        return newHead;
+    }
+};
 
 
 int main(int argc, char const *argv[])
