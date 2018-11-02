@@ -38,6 +38,7 @@ class Solution
                 i++;
             }
             int s_t_len = s_t.length();
+            // 大小写转换的api
             transform(s_t.begin(),s_t.end(),s_t.begin(),::tolower); 
             cout << "s temp is " << s_t << endl;
             for(int j = 0; j < s_t_len / 2;j++)
@@ -46,7 +47,6 @@ class Solution
             }
             return true;
         }
-
 };
 // leetcode 的高票双指针解法
 class Solution_ {

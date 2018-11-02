@@ -27,6 +27,7 @@ struct ListNode
 class Solution
 {
     public :
+        // 解决方法快慢指针
         bool hasCycle(ListNode *head)
         {
             if(!head || !head -> next) return false;
@@ -42,10 +43,3 @@ class Solution
             return true;
         }
 };
-
-
-int main(int argc, char const *argv[])
-{
-    
-    return 0;
-}
