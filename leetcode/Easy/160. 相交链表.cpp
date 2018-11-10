@@ -92,8 +92,8 @@ class Solution{
             ListNode *pa = headA,*pb = headB;
             while(pa != pb)
             {
-                pa = pa -> next ? pb : pa -> next;
-                pb = pb -> next ? pa : pb -> next;
+                pa = pa -> next ? pa -> next: pb;
+                pb = pb -> next ? pb -> next: pa;
             }
             return pa;
         }

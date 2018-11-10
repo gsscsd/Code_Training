@@ -1,41 +1,50 @@
 /**
+给定一个二叉树，返回所有从根节点到叶子节点的路径。
+说明: 叶子节点是指没有子节点的节点。
 
-请判断一个链表是否为回文链表。
+示例:
+输入:
 
-示例 1:
+   1
+ /   \
+2     3
+ \
+  5
 
-输入: 1->2
-输出: false
-示例 2:
-
-输入: 1->2->2->1
-输出: true
-进阶：
-你能否用 O(n) 时间复杂度和 O(1) 空间复杂度解决此题？
+输出: ["1->2->5", "1->3"]
+解释: 所有根节点到叶子节点的路径为: 1->2->5, 1->3
 */
 
 /**
- * 
- * 
- * 
+解题思路：
+广度优先遍历
+设定一个栈对数据压栈，并且递归的处理
 */
 
 #include <iostream>
 #include <vector>
+#include <string>
 
 using namespace std;
 
-struct ListNode 
+struct TreeNode 
 {
     int val;
-    struct ListNode *next;
-    ListNode(int x) : val(x),next(NULL){};
+    struct TreeNode *left;
+    struct TreeNode *right;
+    TreeNode(int x):val(x),left(NULL),right(NULL){};
 };
 
-class Solution {
+class Solution 
+{
     public:
-        bool isPalindrome(ListNode* head) 
+        vector<string> binaryTreePaths(TreeNode* root) 
         {
             
         }
 };
+
+int main()
+{
+    return 0;
+}

@@ -44,12 +44,34 @@ class Solution
                     break;
                 }
                 // 否则的话，调节头尾指针
-                // z注意下面的头尾指针的用法
+                // 注意下面的头尾指针的用法
                 while(head < tail && nums[head] + nums[tail] > target) --tail;
                 while(head < tail && nums[head] + nums[tail] < target) ++head;
             }
             return result;
         }
+};
+
+// 晴宝宝独立完成的代码
+class Solution_ {
+public:
+    vector<int> twoSum(vector<int>& numbers, int target) {
+        vector<int> num;
+        int i = 0, j = numbers.size() - 1;
+        while( j > i )
+        {
+            if(target - numbers[i] == numbers[j] )
+            {
+                num.push_back(i + 1);
+                num.push_back(j + 1);
+                break;
+            }
+            if(target < numbers[i] + numbers[j]) j--;
+            if(target > numbers[i] + numbers[j]) i++;
+
+        }
+        return num;
+    }
 };
 
 // int main(int argc, char const *argv[])

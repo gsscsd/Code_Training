@@ -52,6 +52,7 @@ public:
     }
 
     // 注意以下代码参考自小象学院数组那一章节
+    // 恩，自己还是默写不出来，太菜
     int MoreThanHalfNum_Solution_(vector<int> numbers)
     {
         int count = 0;
