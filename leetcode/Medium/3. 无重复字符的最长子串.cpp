@@ -48,7 +48,7 @@ class Solution
                 for (int i=0; i < s.length(); i++)
                 {
                     pre = max(pre, mp[s[i]]);
-                    Max = max(Max, i-pre);
+                    Max = max(Max, i - pre);
                     mp[s[i]] = i;
                 }
             return Max;

@@ -27,8 +27,8 @@ class Solution
         int countPrimes(int n) 
         {
             int count = 0;
-            if(n <= 1) return count;
-            if(n == 2) count += 1;
+            if(n <= 2) return count;
+            count += 1;
             
             // 每次只需要计算奇数就可以了
             for(int i = 3; i < n;i += 2)

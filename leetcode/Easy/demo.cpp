@@ -1,24 +1,21 @@
 /**
-给定一个二叉树，返回所有从根节点到叶子节点的路径。
-说明: 叶子节点是指没有子节点的节点。
+编写一个函数，以字符串作为输入，反转该字符串中的元音字母。
 
-示例:
-输入:
+示例 1:
 
-   1
- /   \
-2     3
- \
-  5
+输入: "hello"
+输出: "holle"
+示例 2:
 
-输出: ["1->2->5", "1->3"]
-解释: 所有根节点到叶子节点的路径为: 1->2->5, 1->3
+输入: "leetcode"
+输出: "leotcede"
+说明:
+元音字母不包含字母"y"。
 */
 
 /**
 解题思路：
-广度优先遍历
-设定一个栈对数据压栈，并且递归的处理
+双指针，前后一起遍历
 */
 
 #include <iostream>
@@ -27,24 +24,18 @@
 
 using namespace std;
 
-struct TreeNode 
-{
-    int val;
-    struct TreeNode *left;
-    struct TreeNode *right;
-    TreeNode(int x):val(x),left(NULL),right(NULL){};
-};
-
 class Solution 
 {
     public:
-        vector<string> binaryTreePaths(TreeNode* root) 
+        string reverseVowels(string s) 
         {
+            int i = 0,j = s.length();
             
         }
 };
 
-int main()
+
+int main(int argc, char const *argv[])
 {
     return 0;
 }

@@ -48,7 +48,7 @@ class Solution
             // 接下来就是将二进制的字符串转成uint32的数字
             uint32_t result = 0;
 
-            for(int i = res.size() - 1;i>= 0;i--)
+            for(int i = res.size() - 1;i >= 0;i--)
             {
                 result += (res[i] - '0') * pow(2,31 - i);
             }
@@ -56,6 +56,8 @@ class Solution
         }
 
 };
+
+
 
 // 更加简洁和高效的算法
 // 对于位运算有很深的考虑啊

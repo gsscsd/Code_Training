@@ -33,34 +33,48 @@
 
 using namespace std;
 
-struct ListNode 
+struct ListNode
 {
     int val;
     struct ListNode *next;
-    ListNode(int x):val(x),next(NULL){};
+    ListNode(int x) : val(x), next(NULL){};
 };
 
-class Solution 
+class Solution
 {
-    public:
-        void deleteNode(ListNode* node) 
+  public:
+    void deleteNode(ListNode *node)
+    {
+        ListNode *phead = node;
+        ListNode *ptemp = node->next;
+        while (ptemp->next != NULL)
         {
-            ListNode *phead = node;
-            ListNode *ptemp = node -> next;
-            
-            while(ptemp -> next != NULL)
-            {
-                phead -> val = ptemp -> val;
-                phead = ptemp;
-                ptemp = ptemp -> next;
-            }
-            
-            phead -> val = ptemp -> val;
-            phead -> next = NULL;
-            return;
+            phead->val = ptemp->val;
+            phead = ptemp;
+            ptemp = ptemp->next;
         }
+        phead->val = ptemp->val;
+        phead->next = NULL;
+        return;
+    }
 };
 
+// 晴宝宝大神的代码 16ms
+class Solution_
+{
+  public:
+    void deleteNode(ListNode *node)
+    {
+        int temp;
+        ListNode *p = node->next;
+
+        temp = node->val;
+        node->val = p->val;
+        p->val = temp;
+
+        node->next = p->next;
+    }
+};
 
 int main(int argc, char const *argv[])
 {

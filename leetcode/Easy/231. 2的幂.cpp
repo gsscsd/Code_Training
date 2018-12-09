@@ -23,6 +23,7 @@
 
 #include <iostream>
 #include <vector>
+#include <cmath>
 
 using namespace std;
 
@@ -44,6 +45,7 @@ class Solution
         }
 };
 // 大神的代码，依然这么简洁
+// 此处不需要用递归或者循环来做，但是，考虑了位运算
 class Solution_ {
 public:
     bool isPowerOfTwo(int n) {
@@ -51,6 +53,20 @@ public:
         // 这里的代码没有明白是什么意思？
         return (n & -n) == n;
     }
+};
+
+class Solution_0
+{
+    public:
+        bool isPowerOfTwo(int num) 
+        {
+            if (num <= 0)
+                return false;
+            double tmp = log10(num) / log10(2);
+            if (tmp - int(tmp) == 0)
+                return true;
+            return false;
+        }
 };
 
 
