@@ -54,7 +54,7 @@ class Solution
 };
 
 // 应用vector的特性，直接删除，然后在最后面添加0
-class Solution {
+class Solution_0 {
 public:
     void moveZeroes(vector<int>& nums) {
         int count = 0;
@@ -71,7 +71,7 @@ public:
 };
 
 // 另一种，先将0覆盖，然对后面的数据重新赋值为0
-class Solution {
+class Solution_ {
 public:
     void moveZeroes(vector<int>& nums) {
         int j=0;
