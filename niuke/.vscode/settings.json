@@ -1,0 +1,11 @@
+{
+    "C_Cpp.errorSquiggles": "Disabled",
+    "files.associations": {
+        "iosfwd": "cpp",
+        "deque": "cpp",
+        "vector": "cpp",
+        "*.tcc": "cpp",
+        "functional": "cpp",
+        "iostream": "cpp"
+    }
+}
