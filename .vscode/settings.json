@@ -40,7 +40,8 @@
         "queue": "cpp",
         "algorithm": "cpp",
         "string": "cpp",
-        "functional": "cpp"
+        "functional": "cpp",
+        "valarray": "cpp"
     },
     "editor.tabSize": 4,
     "C_Cpp.errorSquiggles": "Disabled",
